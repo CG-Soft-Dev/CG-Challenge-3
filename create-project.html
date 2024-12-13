@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="project-banner">
+    <img id="bannerImage" src="" alt="Project Banner" onerror="this.classList.add('default-banner')">
+  </div>
+  <nav class="project-nav">
+    <button class="nav-button active" data-section="overview">Overview</button>
+    <button class="nav-button" data-section="details">Details</button>
+    <button class="nav-button" data-section="gallery">Gallery, Files & Links</button>
+  </nav>
+  <form id="createProjectForm">
+    <section id="overview" class="project-section active">
+      <h2>Project Overview</h2>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate">
+      </div>
+      <div class="form-group">
+        <label for="banner">Project Banner:</label>
+        <input type="file" id="banner" name="banner" accept="image/*">
+      </div>
+    </section>
+
+    <section id="details" class="project-section">
+      <h2>Project Details</h2>
+      <div class="form-group">
+        <label for="question1">Top three things you learned:</label>
+        <textarea id="question1" name="question1"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="question2">Top three things that surprised you:</label>
+        <textarea id="question2" name="question2"></textarea>
+      </div>
+    </section>
+
+    <section id="gallery" class="project-section">
+      <h2>Gallery, Files & Links</h2>
+      <div class="form-group">
+        <label for="files">Upload Files:</label>
+        <input type="file" id="files" name="files" multiple>
+        <div id="galleryPreview" class="gallery-grid"></div>
+      </div>
+      <div class="form-group">
+        <label for="links">External Links:</label>
+        <input type="url" id="links" name="links" placeholder="Enter URL and press Enter">
+        <ul id="linksList"></ul>
+      </div>
+    </section>
+
+    <div class="button-group">
+      <button type="submit" class="btn-primary">Create Project</button>
+      <button type="button" id="cancelCreate" class="btn-secondary">Cancel</button>
+    </div>
+  </form>
+  <script src="db-service.js"></script>
+  <script src="create-project.js"></script>
+</body>
+</html>

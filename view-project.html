@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="project-container">
+    <div class="project-banner">
+      <img id="bannerImage" src="" alt="Project Banner" onerror="this.classList.add('default-banner')">
+    </div>
+    <div class="project-header">
+      <div class="project-header-content">
+        <h1 id="projectTitle">Project Title</h1>
+        <p id="projectDescription">Project Description</p>
+        <p><strong>Due Date:</strong> <span id="projectDueDate"></span></p>
+      </div>
+      <div class="action-buttons">
+        <button id="editProjectButton" class="btn-primary">Edit Project</button>
+        <button id="backButton" class="btn-secondary">Back to Dashboard</button>
+      </div>
+    </div>
+    <nav class="project-nav">
+      <button class="active" data-section="details">Project Details</button>
+      <button data-section="gallery">Gallery</button>
+      <button data-section="links">Links</button>
+    </nav>
+    <section id="details" class="project-section active">
+      <h2>Project Details</h2>
+      <p><strong>Top three things you learned:</strong></p>
+      <p id="learned"></p>
+      <p><strong>Top three things that surprised you:</strong></p>
+      <p id="surprised"></p>
+    </section>
+    <section id="gallery" class="project-section hidden">
+      <h2>Gallery</h2>
+      <div id="galleryPreview" class="gallery-grid"></div>
+    </section>
+    <section id="links" class="project-section hidden">
+      <h2>Links</h2>
+      <ul id="linksList"></ul>
+    </section>
+    <div class="sticky-actions">
+      <div class="button-group">
+          <button id="deleteProjectButton" class="btn-danger">Delete Project</button>
+          <button id="submitProjectButton" class="btn-success">Submit Project</button>
+      </div>
+    </div>
+    <script src="db-service.js"></script>
+    <script src="view-project.js"></script>
+  </div>
+</body>
+</html>

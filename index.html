@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Prepr Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="dashboard-body">
+  <header>
+    <h1>My Prepr Dashboard</h1>
+    <nav class="top-nav">
+      <button class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul>
+        <!-- menu items -->
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="create-project.html" class="nav-link">Create Project</a></li>
+        <li><a href="#" class="nav-link">My Profile</a></li>
+        <li><a href="#" class="nav-link">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Analytics Panel -->
+  <div id="analytics-panel" class="analytics-panel">
+    <div class="analytics-card">
+        <div class="analytics-header"><h2>Projects Statistics</h2></div>
+        <div class="analytics-grid">
+            <div class="stat-item">
+                <div class="stat-label">On-going:</div>
+                <div class="stat-value" id="ongoingProjects">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Submitted:</div>
+                <div class="stat-value" id="submittedProjects">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Due Soon:</div>
+                <div class="stat-value" id="projectsDueSoon">0</div>
+            </div>
+        </div>
+        <div class="analytics-charts">
+            <div class="chart-container">
+                <h3>Project Status Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Projects Due Date Status</h3>
+                <div class="chart-wrapper">
+                    <canvas id="dueSoonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="projects-container">
+    <div class="active-projects-container">
+      <div class="project-list-header">
+        <h2>Active Projects</h2>
+        <button id="createNewProject">Create New Project</button>
+      </div>
+      <div id="projectList" class="project-list">
+        <!-- Project items go here -->
+      </div>
+    </div>
+    <div class="submitted-projects-container">
+      <div class="project-list-header submitted-header">
+        <h2>Submitted Projects</h2>
+      </div>
+      <div id="submittedProjectList" class="project-list submitted-project-list">
+        <!-- Submitted project items go here -->
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="db-service.js"></script>
+  <script src="dashboard.js"></script>
+
+  <script>// Hamburger menu functionality
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".top-nav ul");
+    
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-link").forEach(link => 
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      })
+    );</script>
+</body>
+</html>
